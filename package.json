@@ -1,0 +1,8 @@
+{
+  "name": "theguardianapi",
+  "version": "1.0.0",
+  "description": "Is a service of access MongoDB database and provide data for mobile app created as prototype of the Projeto Integrador 6!",
+  "main": "index.ts",
+  "author": "Claudio Marcio Stocco",
+  "license": "MIT"
+}
