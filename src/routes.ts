@@ -19,5 +19,7 @@ routes.get('/', (req, res) => {
     `);
 });
 
+routes.get('/version', (req, res) => res.json({version: '1.0.0'}));
+
 routes.use('/login', loginRouter);
 routes.use('/users', usersRouter);
