@@ -1,4 +1,7 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
+
+import { find } from '../services/database/find';
+import { insert } from '../services/database/insert';
 
 export const usersRouter = Router();
 
@@ -18,3 +21,18 @@ usersRouter.get('/:email', (req, res) => {
         email: 'claudiostocco@gmail.com',
     })
 });
+
+usersRouter.post('/', async (req: Request, res: Response) => {
+    if (req.body) {
+        const user = JSON.parse(req.body);
+        if (user) {
+            const inserted = await insert('users', 'email', user);
+            return res.status(inserted?.success ? 201 : 500).json(inserted);
+        }
+    }
+    return res.status(400).json({
+        success: false,
+        inserted: null,
+        error: 'Invalid request body',
+    });
+})
