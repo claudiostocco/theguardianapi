@@ -1,7 +1,10 @@
 import { MongoClient } from 'mongodb';
 
-let uri = process.env.MONGODB_URI || "";
-let dbName = process.env.MONGODB_DB;
+// let uri = process.env.MONGODB_URI || "";
+// let dbName = process.env.MONGODB_DB;
+
+let uri = 'mongodb+srv://pi_user:paNb2g9x6lCKNEKG@cluster0.bosi2.mongodb.net/';
+let dbName = 'theguardian';
 
 let cachedClient: any = null;
 let cachedDb: any = null;

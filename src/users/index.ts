@@ -5,11 +5,15 @@ import { insert } from '../services/database/insert';
 
 export const usersRouter = Router();
 
-usersRouter.get('/', (req, res) => {
-    return res.status(200).json({
-        _id: '1212313321321',
-        name: 'Claudio Marcio Stocco',
-        email: 'claudiostocco@gmail.com',
+usersRouter.get('/', async (req, res) => {
+    const users = await find('users', {});
+    if (users) {
+        return res.status(users.success ? 201 : 500).json(users);
+    }
+    return res.status(500).json({
+        success: false,
+        searched: null,
+        error: 'Users list shearching error',
     })
 });
 
