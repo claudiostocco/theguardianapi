@@ -9,7 +9,7 @@ export async function find(collection: string, findKey: {}) {
          if (searched) {
             return { success: true, searched };
          } else {
-            return { success: false, searched: null };
+            return { success: false, searched: null, error: 'Usuário não encontrado!' };
          }
       }      
    } catch (error) {

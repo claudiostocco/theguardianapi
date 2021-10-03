@@ -1,4 +1,9 @@
-import { MongoClient } from 'mongodb';
+import { Db, MongoClient } from 'mongodb';
+
+type DatabaseConnect = {
+  client: MongoClient;
+  db: Db;
+}
 
 // let uri = process.env.MONGODB_URI || "";
 // let dbName = process.env.MONGODB_DB;
@@ -21,7 +26,7 @@ if (!dbName) {
   );
 }
 
-export async function connectToDatabase() {
+export async function connectToDatabase(): Promise<DatabaseConnect> {
   if (cachedClient && cachedDb) {
     return { client: cachedClient, db: cachedDb };
   }
