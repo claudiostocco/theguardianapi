@@ -20,7 +20,6 @@ usersRouter.get('/', async (req, res) => {
 });
 
 usersRouter.get('/:email', async (req, res) => {
-    console.log(req.params.email);
     if (req.params.email) {
         const email = req.params.email;
         const user = await find('users', { email });

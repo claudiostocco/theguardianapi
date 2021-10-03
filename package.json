@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsnd --ignore-watch node_modules --respawn --transpile-only src/server.ts",
-    "dev1": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+    "build": "tsnd --ignore-watch node_modules --respawn --transpile-only src/server.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
