@@ -1,9 +1,9 @@
 import { Request, Response, Router } from "express";
 
-import { find } from '../services/database/find';
-import { insert } from '../services/database/insert';
-import { update } from '../services/database/update';
-import { remove } from '../services/database/delete';
+import { find } from '../../services/database/find';
+import { insert } from '../../services/database/insert';
+import { update } from '../../services/database/update';
+import { remove } from '../../services/database/delete';
 
 export const usersRouter = Router();
 
