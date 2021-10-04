@@ -6,6 +6,7 @@
   "author": "Claudio Marcio Stocco",
   "license": "MIT",
   "scripts": {
+    "start": "node server.js",
     "dev": "tsnd --ignore-watch node_modules --respawn --transpile-only src/server.ts",
     "build": "tsc"
   },
