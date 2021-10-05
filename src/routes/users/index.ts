@@ -4,13 +4,14 @@ import { find } from '../../services/database/find';
 import { insert } from '../../services/database/insert';
 import { update } from '../../services/database/update';
 import { remove } from '../../services/database/delete';
+import { User } from "../../types/users";
 
 export const usersRouter = Router();
 
 usersRouter.get('/', async (req, res) => {
-    const users = await find('users', {});
-    if (users) {
-        return res.status(users.success ? 201 : 500).json(users);
+    const searched = await find('users', {});
+    if (searched) {
+        return res.status(searched.success ? 201 : 500).json(searched);
     }
     return res.status(500).json({
         success: false,
@@ -22,8 +23,8 @@ usersRouter.get('/', async (req, res) => {
 usersRouter.get('/:email', async (req, res) => {
     if (req.params.email) {
         const email = req.params.email;
-        const user = await find('users', { email });
-        return res.status(user?.success ? 200 : 500).json(user);
+        const searched = await find('users', { email });
+        return res.status(searched?.success ? 200 : 500).json(searched);
     }
     return res.status(200).json({
         success: false,
@@ -34,7 +35,7 @@ usersRouter.get('/:email', async (req, res) => {
 
 usersRouter.post('/', async (req: Request, res: Response) => {
     if (req.body) {
-        const user = req.body;
+        const user = req.body as User;
         if ((user) && user.email) {
             const inserted = await insert('users', {email: user.email}, user);
             return res.status(inserted?.success ? 201 : 500).json(inserted);
@@ -49,7 +50,7 @@ usersRouter.post('/', async (req: Request, res: Response) => {
 
 usersRouter.put('/:email', async (req: Request, res: Response) => {
     if ((req.params['email']) && (req.body)) {
-        const user = req.body;
+        const user = req.body as User;
         if (user) {
             const updated = await update('users', {email: req.params['email']}, user);
             return res.status(updated?.success ? 200 : 500).json(updated);
