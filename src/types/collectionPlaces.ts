@@ -1,5 +1,5 @@
 export type CollectionPlace = {
-    id?: string;
+    _id?: string;
     address: string;
     neighborhood: string;
     time: string;

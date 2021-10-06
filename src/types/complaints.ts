@@ -1,5 +1,5 @@
 export type Complaint = {
-    id?: string;
+    _id?: string;
     email: string;
     name: string;
     title: string;
