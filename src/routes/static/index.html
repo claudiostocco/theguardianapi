@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p style="font-size: 1.4rem">
+            <span style="font-size: 2rem; font-style: bold">The Guardian API</span> is a service of access MongoDB database and provide data for mobile app created as prototype of the Projeto Integrador 6!
+        </p>
+        <ul style="font-size: 1.2rem">
+            <li>
+                <strong>/version</strong> => Recurso para exibir a versão desta API.
+            </li>
+            <li>
+                <strong>/login/:email/:password</strong> => Recurso para validar o login no App, passando o email e asenha do usuário.
+            </li>
+            <li>
+                <div>
+                    <strong>/users</strong> => Recurso para manipular a tabela "users" do banco de dados, é possível cadastrar (POST), alterar (PUT) e listar (GET) usuários.
+                    <ul>
+                        <li><strong>/users/:email</strong> => Para pesquisar por email</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>/collectionPlaces</strong> => Recurso para manipular a tabela "collectionPlaces" do banco de dados, é possível cadastrar (POST), alterar (PUT) e listar (GET) locais de coleta de lixo.
+                    <ul>
+                        <li><strong>/collectionPlaces/address/:address</strong> => Para pesquisar por endereço</li>
+                        <li><strong>/collectionPlaces/neighborhood/:neighborhood</strong> => Para pesquisar por bairro</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong>/complaints</strong> => Recurso para manipular a tabela "complaints" do banco de dados, é possível cadastrar (POST), alterar (PUT) e listar (GET) denúncias.
+                    <ul>
+                        <li><strong>/complaints/:email</strong> => Lista todas as denúncias feitas por este email</li>
+                        <li><strong>/complaints/title/:title</strong> => Para pesquisar por titulo da denúncia</li>
+                    </ul>
+                </div>
+            </li>
+        <ul>
+
+        <br>
+        <h2>This project is developed by the team 4N.58 Cerqueira César</h2>
+    </div>
+</body>
+
+</html>
