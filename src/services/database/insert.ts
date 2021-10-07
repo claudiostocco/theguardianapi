@@ -12,10 +12,23 @@ export async function insert(collection: string, findKey: {}, data: any) {
          } else {
             return {
                success: false,
-               inserted: null, 
+               inserted: null,
                error: 'Usuário já existe!',
             };
          }
+      }
+   } catch (error) {
+      return { success: false, inserted: null, error };
+   }
+}
+
+export async function insertMany(collection: string, data: any) {
+   try {
+      const { db, client } = await connectToDatabase();
+
+      if (client) {
+         const inserted = await db.collection(collection).insertMany(data);
+         return { success: true, inserted };
       }
    } catch (error) {
       return { success: false, inserted: null, error };

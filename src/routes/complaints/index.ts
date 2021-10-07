@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ObjectId } from "bson";
 
 import { find } from '../../services/database/find';
 import { insert } from '../../services/database/insert';
@@ -33,9 +34,9 @@ complaintsRouter.get('/:email', async (req, res) => {
     });
 });
 
-complaintsRouter.get('/:title', async (req, res) => {
+complaintsRouter.get('/title/:title', async (req, res) => {
     if (req.params.title) {
-        const title = req.params.title;
+        const title = new RegExp(req.params.title, 'i');
         const searched = await find('complaints', { title });
         return res.status(searched?.success ? 200 : 500).json(searched);
     }
@@ -68,7 +69,7 @@ complaintsRouter.put('/:id', async (req, res) => {
     if ((req.params.id) && (req.body)) {
         const complaint = req.body as Complaint;
         if (complaint) {
-            const updated = await update('complaints', {_id: req.params.id}, complaint);
+            const updated = await update('complaints', { _id: new ObjectId(req.params.id) }, complaint);
             return res.status(updated?.success ? 200 : 500).json(updated);
         }
     }
@@ -81,7 +82,7 @@ complaintsRouter.put('/:id', async (req, res) => {
 
 complaintsRouter.delete('/:id', async (req, res) => {
     if (req.params.id) {
-        const deleted = await remove('complaints', {_id: req.params.id});
+        const deleted = await remove('complaints', { _id: new ObjectId(req.params.id) });
         return res.status(deleted?.success ? 200 : 500).json(deleted);
     }
     return res.status(400).json({
