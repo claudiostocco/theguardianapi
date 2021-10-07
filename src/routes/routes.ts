@@ -15,7 +15,15 @@ routes.get('/', (req, res) => {
           <ul style="font-size: 1.2rem">
             <li><strong>/version</strong> => Recurso para exibir a versão desta API.</li>
             <li><strong>/login</strong> => Recurso para validar o login no App, passando o email e asenha do usuário.</li>
-            <li><strong>/users</strong> => Recurso para manipular a tabela "users" do banco de dados, é possível cadastrar (POST), alterar (PUT) e listar (GET) usuários.</li>
+            <li>
+              <div>
+                <strong>/users</strong> => Recurso para manipular a tabela "users" do banco de dados, é possível cadastrar (POST), alterar (PUT) e listar (GET) usuários.
+                <ul>
+                  <li><strong>/users/address/:address</strong> => Para pesquisar por endereço</li>
+                  <li><strong>/users/neighborhood/:neighborhood</strong> => Para pesquisar por bairro</li>
+                </ul>
+              </div>
+            </li>
             <li><strong>/collectionPlaces</strong> => Recurso para manipular a tabela "collectionPlaces" do banco de dados, é possível cadastrar (POST), alterar (PUT) e listar (GET) locais de coleta de lixo.</li>
             <li><strong>/complaints</strong> => Recurso para manipular a tabela "complaints" do banco de dados, é possível cadastrar (POST), alterar (PUT) e listar (GET) denúncias.</li>
           <ul>
