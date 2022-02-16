@@ -11,7 +11,7 @@ export const usersRouter = Router();
 usersRouter.get('/', async (req, res) => {
     const searched = await find('users', {});
     if (searched) {
-        return res.status(searched.success ? 201 : 500).json(searched);
+        return res.status(searched.success ? 200 : 500).json(searched);
     }
     return res.status(500).json({
         success: false,
